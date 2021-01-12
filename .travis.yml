@@ -9,7 +9,7 @@ before_install:
 script:
   - docker run -e CI=true ckddn9496/react-test-app npm run test
 
-after_succes:
+after_success:
   - docker build -t ckddn9496/docker-frontend ./frontend
   - docker build -t ckddn9496/docker-backend ./backend
   - docker build -t ckddn9496/docker-nginx ./nginx
