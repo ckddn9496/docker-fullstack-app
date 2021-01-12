@@ -1,6 +1,6 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [ // 컨테이너를 정의해줍니다.
+    "containerDefinitions": [
         {
             "name": "frontend",
             "image": "ckddn9496/docker-frontend",
@@ -9,11 +9,11 @@
             "memory": 128
         },
         {
-            "name": "backend", // 컨테이너 이름
-            "image": "ckddn9496/docker-backend", // Docker Hub의 이미지 이름
-            "hostname": "backend", // 호스트 이름
-            "essential": false, // 컨테이너가 실패할 경우 작업을 중지해야하면 true
-            "memory": 128 // 컨테이너용으로 예약할 컨테이너 인스턴스에 있는 메모리 양. 컨테이너 정의에서 memory 또는 memoryReservation 파라미터 중 하나 또는 모두에 0이 아닌 정수를 지정하면 된다.
+            "name": "backend",
+            "image": "ckddn9496/docker-backend", 
+            "hostname": "backend",
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "nginx",
@@ -25,7 +25,7 @@
                     "containerPort": 80
                 }
             ],
-            "links": [ // 연결할 컨테이너의 목록. 연결된 컨테이너는 서로를 검색하고 안전하게 통신할 수 있다.
+            "links": [
                 "frontend",
                 "backend"
             ],
