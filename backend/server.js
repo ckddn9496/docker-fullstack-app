@@ -10,14 +10,14 @@ const app = express();
 // Json 형태로 오는 요청의 본문을 해석해줄수 있게 등록
 app.use(bodyParser.json());
 
-// // TABLE 생성
-// db.pool.query(`CREATE TABLE lists(
-//     id INTEGER AUTO_INCREMENT,
-//     value TEXT,
-//     PRIMARY KEY (id)
-// )`, (err, results, fields) => {
-//     console.log('results', results);
-// })
+// TABLE 생성
+db.pool.query(`CREATE TABLE lists(
+    id INTEGER AUTO_INCREMENT,
+    value TEXT,
+    PRIMARY KEY (id)
+)`, (err, results, fields) => {
+    console.log('results', results);
+})
 
 app.get('/api/values', (req, res) => {
     db.pool.query('SELECT * FROM lists;',

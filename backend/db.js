@@ -1,5 +1,5 @@
-var mysql = require('mysql');
-var pool = mysql.createPool({
+const mysql = require("mysql");
+const pool = mysql.createPool({
     connectionLimit: 10,
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
@@ -7,5 +7,4 @@ var pool = mysql.createPool({
     database: process.env.MYSQL_DATABASE,
     port: process.env.MYSQL_PORT
 });
-
 exports.pool = pool;
