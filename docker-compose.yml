@@ -1,34 +1,28 @@
-version: '3'
-services: 
-
+version: "3"
+services:
   frontend:
     build:
-      context: ./frontend
       dockerfile: Dockerfile.dev
+      context: ./frontend
     volumes:
       - /app/node_modules
       - ./frontend:/app
     stdin_open: true
 
-  nginx:
-  ####################### 재시작 정책 #######################
-  # no : 어떠한 상황에서도 재시작을 하지 않는다
-  # always : 항상
-  # on-failure : on-failure 에러코드와 함께 컨테이너가 멈추었을때만 재시작
-  # unless-stopped : 개발자가 임의로 멈추려고 할때를 제외하고 항상 재시작
-    restart: always # 재시작 정책
+  nginx: 
+    restart: always
     build:
-      context: ./nginx
       dockerfile: Dockerfile
+      context: ./nginx
     ports: 
       - "3000:80"
 
   backend:
     build: 
-      context: ./backend
       dockerfile: Dockerfile.dev
+      context: ./backend
     container_name: app_backend
-    volumes: 
+    volumes:
       - /app/node_modules
       - ./backend:/app
     environment: 
