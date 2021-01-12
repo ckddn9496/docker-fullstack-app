@@ -18,6 +18,7 @@
         {
             "name": "nginx",
             "image": "ckddn9496/docker-nginx",
+            "hostname": "nginx",
             "essential": true,
             "portMappings": [
                 {
